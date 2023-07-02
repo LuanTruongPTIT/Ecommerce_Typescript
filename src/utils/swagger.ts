@@ -17,19 +17,19 @@ const options: swaggerJsdoc.Options = {
           type: 'http',
           scheme: 'bearer',
           bearerFormat: 'JWT'
-        },
-      },
+        }
+      }
     },
     security: [
       {
-        bearerAuth: [],
-      },
-    ],
+        bearerAuth: []
+      }
+    ]
   },
   apis: ['./src/routes.ts', './src/schema/*.ts']
-};
+}
 
-const swaggerSpec = swaggerJsdoc(options);
+const swaggerSpec = swaggerJsdoc(options)
 
 function swaggerDocs(app: Express, port: number) {
   // Swagger page
@@ -37,11 +37,11 @@ function swaggerDocs(app: Express, port: number) {
 
   // Docs in JSON format
   app.get('/docs.json', (req: Request, res: Response) => {
-    res.setHeader("Content-Type", "application/json");
+    res.setHeader('Content-Type', 'application/json')
     res.send(swaggerSpec)
   })
 
   // log.info(`Docs available at http://localhost:${port}/docs`);
 }
 
-export default swaggerDocs;
+export default swaggerDocs
